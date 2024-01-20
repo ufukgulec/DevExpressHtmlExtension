@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@using HtmlUI.Extensions;
+
+@Html.Devexpress().AddDatagrid("test"
+).AddDataSource(new DevexpressDataSource(new DevexpressStore("odata",2,"https://js.devexpress.com/Demos/DevAV/odata/Products","Product_ID"),
+                new List<string>{"Product_ID","Product_Name","Product_Cost","Product_Sale_Price","Product_Retail_Price","Product_Current_Inventory"},null)
+).AddPaging(new DevexpressPaging(10),new DevexpressPager(true,new List<object>{5,10,"all"},true,true,true)
+).AddSelection(new DevexpressSelection("multiple")
+).AddSorting(new DevexpressSorting()
+).AddFilterPanel(new DevexpressFilterPanel(true)
+).AddFilterRow(new DevexpressFilterRow(true)
+).AddHeaderFilter(new DevexpressHeaderFilter(true))
